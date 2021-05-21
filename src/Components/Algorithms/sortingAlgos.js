@@ -1,4 +1,5 @@
 import React from "react";
+import { Merge } from "./helper";
 
 export const BubbleSort = (array, setSteps) => {
   let funarray = new Array();
@@ -50,16 +51,32 @@ export const SelectionSort = (array, setSteps) => {
       }
     }
     [funarray[i], funarray[k]] = [funarray[k], funarray[i]];
-
     temp.push(funarray.slice());
   }
   setSteps(temp);
 };
 export const HeapSort = () => {};
-export const MergeSort = (array, setSteps, low, high) => {
+// Merge sort Iterative version version
+export const MergeSort = (array, setSteps) => {
   let funarray = new Array();
   funarray = [...array];
   let temp = [];
   setSteps([]);
+  let p, i, low, mid, high;
+  for (p = 2; p <= funarray.length; p = p * 2) {
+    for (i = 0; i < i + p - 1; i = i + p) {
+      low = i;
+      high = i + p - 1;
+      mid = Math.floor((low + high) / 2);
+      Merge(funarray, mid, low, high);
+      temp.push(funarray.slice());
+    }
+  }
+  if (p / 2 < funarray.length) {
+    Merge(funarray, mid, low, high);
+    temp.push(funarray.slice());
+  }
+
+  setSteps(temp);
 };
 export const QuickSort = () => {};
