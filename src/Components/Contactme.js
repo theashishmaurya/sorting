@@ -1,37 +1,67 @@
-import React, { Fragment, useState } from "react";
-
+import React, { Fragment, useEffect, useState } from "react";
+import { init } from "emailjs-com";
+import emailjs from "emailjs-com";
 const ContactForm = () => {
   //   const [first_name, setFirst_name] = useState();
   //   const [last_name, setLast_name] = useState();
   //   const [email, setEmail] = useState();
   //   const [feedback, setfeedback] = useState();
+
   const [data, setData] = useState({
-    fistName: "",
+    firstName: "",
     lastName: "",
     email: "",
     feedback: "",
   });
-  const [firstName, lastName, email, feedback] = data;
+  const { firstName, lastName, email, feedback } = data;
+  const ID = process.env.REACT_APP_EMAILJS_ID;
+  useEffect(() => {
+    init(ID);
+  });
 
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
+  const handleOnChange = (name) => (e) => {
+    setData({ ...data, [name]: e.target.value });
   };
-  const handleOnChange = (name) => (e) => {};
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    console.log(data);
+    const serviceID = "basic";
+    const templateID = "template_4ybn29f";
+    const templateParams = {
+      to_name: "Ashish",
+      from_name: `${firstName}${lastName}`,
+      message: feedback,
+      user_email: email,
+    };
+    emailjs.send(serviceID, templateID, templateParams, ID).then(
+      (response) => {
+        alert("Feedback Sent");
+        console.log(response.status, response.text);
+      },
+      (err) => {
+        console.log("Failed...", err);
+        alert("Feedback Failed");
+      }
+    );
+  };
 
   return (
     <Fragment>
       <div className='container'>
         <h4 className='center'>Contact Me</h4>
         <div class='row' style={{ padding: "50px" }}>
-          <form class='col s12  ' style={{ margin: "auto" }}>
+          <form
+            class='col s12  '
+            style={{ margin: "auto" }}
+            onSubmit={handleOnSubmit}
+          >
             <div class='row'>
               <div class='input-field col s6'>
                 <input
                   id='first_name'
                   type='text'
                   class='validate'
-                  value='firstName'
-                  onChange={handleOnChange(value)}
+                  onChange={handleOnChange("firstName")}
                 />
                 <label for='first_name'>First Name</label>
               </div>
@@ -41,8 +71,7 @@ const ContactForm = () => {
                   id='last_name'
                   type='text'
                   class='validate'
-                  value='lastName'
-                  onChange={handleOnChange(value)}
+                  onChange={handleOnChange("lastName")}
                 />
                 <label for='last_name'>Last Name</label>
               </div>
@@ -54,8 +83,7 @@ const ContactForm = () => {
                   id='email'
                   type='email'
                   class='validate'
-                  value='email'
-                  onChange={handleOnChange(value)}
+                  onChange={handleOnChange("email")}
                 />
                 <label for='email'>Email</label>
               </div>
@@ -69,9 +97,16 @@ const ContactForm = () => {
                   rows='300'
                   placeholder='Enter the text here '
                   style={{ height: "15em" }}
-                  value='feedback'
-                  onChange={handleOnChange(value)}
+                  onChange={handleOnChange("feedback")}
                 ></textarea>
+                <button
+                  class='btn waves-effect black text-white col m2 l2 offset-m10 offset-l10'
+                  type='submit'
+                  name='action'
+                >
+                  Submit
+                  <i class='material-icons right'>send</i>
+                </button>
               </div>
             </div>
           </form>
