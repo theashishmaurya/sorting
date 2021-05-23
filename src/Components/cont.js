@@ -74,12 +74,12 @@ const Container = () => {
       <div className='row'>
         <div className='col s2 ' style={{ margin: "20px", padding: "20px" }}>
           <div className='row'>
-            <a
+            <div
               class='waves-effect waves-light btn green'
               onClick={handleCreateNewData}
             >
               Create New Array
-            </a>
+            </div>
           </div>
           <form action='#'>
             <p>
@@ -165,12 +165,12 @@ const Container = () => {
             </a>
           </div> */}
           <div className='row'>
-            <a
+            <div
               class='waves-effect waves-light btn black'
               onClick={setTimeoutfun}
             >
               Sort
-            </a>
+            </div>
           </div>
         </div>
         <div className='col s9 grey' style={{ padding: "10px" }}>

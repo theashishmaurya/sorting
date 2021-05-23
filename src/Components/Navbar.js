@@ -6,7 +6,9 @@ const Navbar = () => {
     <nav className='black'>
       <div className='container'>
         <div class='nav-wrapper'>
-          <a class='brand-logo'>Sorting Visualizer</a>
+          <Link class='brand-logo' to='/'>
+            Sorting Visualizer
+          </Link>
           <ul id='nav-mobile' class='right hide-on-med-and-down'>
             <li>
               <Link to='/'> Home </Link>
