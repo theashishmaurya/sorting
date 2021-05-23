@@ -8,7 +8,11 @@ const Aboutme = () => {
         <h2 class='about-me-heading center '>ABOUT ME</h2>
         <div class='row' id='about-me'>
           <div class='col s12 m3 l3 xl5 center'>
-            <img class='profile-image circle responsive-img' src={image} />
+            <img
+              class='profile-image circle responsive-img'
+              src={image}
+              alt=''
+            />
           </div>
           <div class='col s12 m8 l8 xl6 '>
             <p class='flow-text'>

@@ -4,7 +4,6 @@ import {
   BubbleSort,
   InsertionSort,
   SelectionSort,
-  HeapSort,
   MergeSort,
   QuickSort,
 } from "./Algorithms/sortingAlgos";
@@ -15,7 +14,6 @@ const Container = () => {
   const [steps, setSteps] = useState([]);
   const [selectedAlgorithm, setSelectedAlgorithm] = useState();
   const [isSorted, setIsSorted] = useState(false);
-  const color = [0];
 
   const algorithms = {
     BubbleSort,
@@ -64,9 +62,9 @@ const Container = () => {
       alert("Already sorted");
     }
   };
-  const handleShowData = () => {
-    console.log(steps);
-  };
+  // const handleShowData = () => {
+  //   console.log(steps);
+  // };
 
   return (
     <div
