@@ -21,7 +21,7 @@ const Container = () => {
     BubbleSort,
     InsertionSort,
     SelectionSort,
-    HeapSort,
+    // HeapSort,
     MergeSort,
     QuickSort,
   };
@@ -121,7 +121,7 @@ const Container = () => {
                 <span>Selection Sort</span>
               </label>
             </p>
-            <p>
+            {/* <p>
               <label>
                 <input
                   className='with-gap'
@@ -132,7 +132,7 @@ const Container = () => {
                 />
                 <span>Heap Sort</span>
               </label>
-            </p>{" "}
+            </p> */}
             <p>
               <label>
                 <input
@@ -145,7 +145,7 @@ const Container = () => {
                 <span>Merge Sort</span>
               </label>
             </p>{" "}
-            <p>
+            {/* <p>
               <label>
                 <input
                   className='with-gap'
@@ -156,16 +156,16 @@ const Container = () => {
                 />
                 <span>Quick Sort</span>
               </label>
-            </p>
+            </p> */}
           </form>
-          <div className='row'>
+          {/* <div className='row'>
             <a
               class='waves-effect waves-light btn black'
               onClick={handleShowData}
             >
               show
             </a>
-          </div>
+          </div> */}
           <div className='row'>
             <a
               class='waves-effect waves-light btn black'

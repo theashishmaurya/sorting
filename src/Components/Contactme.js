@@ -28,8 +28,8 @@ const ContactForm = () => {
     const serviceID = "basic";
     const templateID = "template_4ybn29f";
     const templateParams = {
-      to_name: "Ashish",
-      from_name: `${firstName}${lastName}`,
+      to_name: "ADMIN",
+      from_name: `${firstName} ${lastName}`,
       message: feedback,
       user_email: email,
     };
@@ -43,6 +43,7 @@ const ContactForm = () => {
         alert("Feedback Failed");
       }
     );
+    setData({ ...data, firstName: "", lastName: "", email: "", feedback: "" });
   };
 
   return (
@@ -61,6 +62,7 @@ const ContactForm = () => {
                   id='first_name'
                   type='text'
                   class='validate'
+                  value={firstName}
                   onChange={handleOnChange("firstName")}
                 />
                 <label for='first_name'>First Name</label>
@@ -71,6 +73,7 @@ const ContactForm = () => {
                   id='last_name'
                   type='text'
                   class='validate'
+                  value={lastName}
                   onChange={handleOnChange("lastName")}
                 />
                 <label for='last_name'>Last Name</label>
@@ -83,6 +86,7 @@ const ContactForm = () => {
                   id='email'
                   type='email'
                   class='validate'
+                  value={email}
                   onChange={handleOnChange("email")}
                 />
                 <label for='email'>Email</label>
@@ -96,6 +100,7 @@ const ContactForm = () => {
                   cols='300'
                   rows='300'
                   placeholder='Enter the text here '
+                  value={feedback}
                   style={{ height: "15em" }}
                   onChange={handleOnChange("feedback")}
                 ></textarea>
