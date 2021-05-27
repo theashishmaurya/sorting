@@ -59,11 +59,12 @@ export const HeapSort = () => {};
 export const MergeSort = (array, setSteps) => {
   let funarray = [];
   funarray = [...array];
+  const size = funarray.length;
   let temp = [];
   setSteps([]);
   let p, i, low, mid, high;
-  for (p = 2; p <= funarray.length; p = p * 2) {
-    for (i = 0; i < i + p - 1; i = i + p) {
+  for (p = 2; p <= size; p = p * 2) {
+    for (i = 0; i + p - 1 < size; i = i + p) {
       low = i;
       high = i + p - 1;
       mid = Math.floor((low + high) / 2);
@@ -71,8 +72,8 @@ export const MergeSort = (array, setSteps) => {
       temp.push(funarray.slice());
     }
   }
-  if (p / 2 < funarray.length) {
-    Merge(funarray, mid, low, high);
+  if (p / 2 < size) {
+    Merge(funarray, 0, p / 2, size - 1);
     temp.push(funarray.slice());
   }
 
