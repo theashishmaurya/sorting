@@ -11,10 +11,7 @@ let skip = false;
 const waitTime = 69;
 
 const getRandomArray = (cap) => {
-  return Array.from(
-    { length: cap },
-    () => Math.floor(Math.random() * 100) + 1
-  );
+  return Array.from({ length: cap }, () => Math.floor(Math.random() * 100) + 1);
 };
 
 //style = {{margin : '50px', minWidth : '1200px' , minHeight : '500px'}
@@ -62,40 +59,46 @@ const Container = () => {
 
   return (
     <div
-      className="container "
+      className='container '
       style={{ margin: "50px ", minWidth: "1200px", minHeight: "500px" }}
     >
-      <div className="row">
-        <div className="col s2 " style={{ margin: "20px", padding: "20px" }}>
-          <div className="row">
-            <div className="waves-effect waves-light btn green">
+      <div className='row'>
+        <div className='col s2 ' style={{ margin: "20px", padding: "20px" }}>
+          <div className='row' onClick={resetArray}>
+            <div className='waves-effect waves-light btn green'>
               Create New Array
             </div>
           </div>
-          <form action="#">
-            <button onClick={resetArray}> Reset Array</button>
-            <button onClick={startStop}> Start / Stop</button>
-            <button onClick={() => playSort(bubbleSort)}> Bubble Sort</button>
-            <button onClick={() => playSort(mergeSort)}> Merge Sort</button>
-            <button onClick={() => playSort(heapSort)}> Heap Sort</button>
-            <button onClick={() => playSort(quickSort)}> Quick Sort</button>
-            <button onClick={() => playSort(insertionSort)}>
-              {" "}
+          <div className='row' onClick={startStop}>
+            <div className='waves-effect waves-light btn black'>Pause/Play</div>
+          </div>
+          <div className='row' onClick={() => playSort(bubbleSort)}>
+            <div className='waves-effect waves-light btn black'>
+              Bubble Sort
+            </div>
+          </div>
+          <div className='row' onClick={() => playSort(insertionSort)}>
+            <div className='waves-effect waves-light btn black'>
               Insertion Sort
-            </button>
-          </form>
-
-          <div className="row">
-            <div className="waves-effect waves-light btn black">Sort</div>
+            </div>
+          </div>
+          <div className='row' onClick={() => playSort(quickSort)}>
+            <div className='waves-effect waves-light btn black'>Quick Sort</div>
+          </div>
+          <div className='row' onClick={() => playSort(heapSort)}>
+            <div className='waves-effect waves-light btn black'>Heap Sort</div>
+          </div>
+          <div className='row' onClick={() => playSort(mergeSort)}>
+            <div className='waves-effect waves-light btn black'>Merge Sort</div>
           </div>
         </div>
-        <div className="col s9 grey" style={{ padding: "10px" }}>
+        <div className='col s9 grey' style={{ padding: "10px" }}>
           <div style={{ minWidth: "1000px", minHeight: "500px" }}>
             {boundArray.map((val, index) => (
               <div key={index}>
                 <div style={{ height: "1px" }}></div>
                 <div
-                  className="bar black"
+                  className='bar black'
                   style={{ height: "15px", width: val * 8 }}
                 >
                   {" "}
