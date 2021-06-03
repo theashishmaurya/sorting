@@ -11,7 +11,7 @@ const heapSort = (ar) => {
 
     if (r < n && arr[r] > arr[largest]) largest = r;
 
-    if (largest != i) {
+    if (largest !== i) {
       var swap = arr[i];
       arr[i] = arr[largest];
       arr[largest] = swap;
