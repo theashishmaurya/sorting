@@ -8,7 +8,7 @@ import quickSort from "./Algorithms/quickSort";
 let continueFlag = true;
 let running = false;
 let skip = false;
-const waitTime = 50;
+const waitTime = 69;
 
 const getRandomArray = (cap) => {
   return Array.from(
